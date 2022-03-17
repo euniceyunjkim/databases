@@ -1,12 +1,22 @@
+DROP DATABASE chat;
 CREATE DATABASE chat;
 
 USE chat;
 
-CREATE TABLE messages (
-  /* Describe your table here.*/
+/* Create other tables and define schemas for them here! */
+
+CREATE TABLE users (
+  id INT NOT NULL, userName TEXT, PRIMARY KEY (id)
 );
 
-/* Create other tables and define schemas for them here! */
+CREATE TABLE rooms (
+  id INT NOT NULL, roomName TEXT, PRIMARY KEY(id)
+);
+
+CREATE TABLE messages (
+  id INT NOT NULL, textmsg TEXT, createdAt TIMESTAMP NOT NULL, user INT, room INT, FOREIGN KEY (user) REFERENCES users(id), FOREIGN KEY (room) REFERENCES rooms(id), PRIMARY KEY(id)
+);
+
 
 
 
