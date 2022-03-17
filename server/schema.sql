@@ -6,11 +6,11 @@ USE chat;
 /* Create other tables and define schemas for them here! */
 
 CREATE TABLE users (
-  id INT NOT NULL, userName TEXT, PRIMARY KEY (id)
+  id INT NOT NULL, username TEXT, PRIMARY KEY (id)
 );
 
 CREATE TABLE rooms (
-  id INT NOT NULL, roomName TEXT, PRIMARY KEY(id)
+  id INT NOT NULL, roomname TEXT, PRIMARY KEY(id)
 );
 
 CREATE TABLE messages (
