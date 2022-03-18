@@ -17,8 +17,8 @@ describe('Persistent Node Chat Server', () => {
     dbConnection.connect();
 
 
-      // what about other tables?? CHANGED '' TO MESSAGES
-       const tablename = messages; // TODO: fill this out
+    // what about other tables?? CHANGED '' TO MESSAGES
+    const tablename = messages; // TODO: fill this out
 
 
 
@@ -58,8 +58,7 @@ describe('Persistent Node Chat Server', () => {
           expect(results.length).toEqual(1);
 
           // TODO: If you don't have a column named text, change this test.
-          // CHANGED TEXT TO TEXTMSG **
-          expect(results[0].textmsg).toEqual(message);
+          expect(results[0].text).toEqual(message);
           done();
         });
       })
@@ -71,8 +70,8 @@ describe('Persistent Node Chat Server', () => {
   it('Should output all messages from the DB', (done) => {
     // Let's insert a message into the db
     // MIGHT NEED TO CHANGE
-       const queryString = 'SELECT * FROM messages';
-       const queryArgs = [];
+    const queryString = 'SELECT * FROM messages';
+    const queryArgs = [];
     /* TODO: The exact query string and query args to use here
      * depend on the schema you design, so I'll leave them up to you. */
     dbConnection.query(queryString, queryArgs, (err) => {
@@ -84,8 +83,8 @@ describe('Persistent Node Chat Server', () => {
       axios.get(`${API_URL}/messages`)
         .then((response) => {
           const messageLog = response.data;
-          // CHANGED TEXT TO TEXTMSG **
-          expect(messageLog[0].textmsg).toEqual(message);
+
+          expect(messageLog[0].text).toEqual(message);
           expect(messageLog[0].roomname).toEqual(roomname);
           done();
         })

@@ -1,11 +1,15 @@
+// Express is a web application framework for Node that is used for designing and building web applications quickly and easily - Allows you to define routes of our application based on HTTP methods and URLs.
 var express = require('express');
 var db = require('./db');
 
 // Middleware
+// morgan is used to log HTTP requests and errors, and simplifies the process
 var morgan = require('morgan');
+// CORS is an HTTP-header based mechanism
 var cors = require('cors');
 
 // Router
+// routing request methods
 var router = require('./routes.js');
 
 var app = express();

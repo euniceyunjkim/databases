@@ -6,15 +6,11 @@ USE chat;
 /* Create other tables and define schemas for them here! */
 
 CREATE TABLE users (
-  id INT NOT NULL, username TEXT, PRIMARY KEY (id)
-);
-
-CREATE TABLE rooms (
-  id INT NOT NULL, roomname TEXT, PRIMARY KEY(id)
+  id INT NOT NULL AUTO_INCREMENT, username TEXT NOT NULL, PRIMARY KEY (id)
 );
 
 CREATE TABLE messages (
-  id INT NOT NULL, textmsg TEXT, createdAt TIMESTAMP NOT NULL, user INT, room INT, FOREIGN KEY (user) REFERENCES users(id), FOREIGN KEY (room) REFERENCES rooms(id), PRIMARY KEY(id)
+  id INT NOT NULL AUTO_INCREMENT, text TEXT, userid INT NOT NULL, roomname TEXT, PRIMARY KEY(id)
 );
 
 
